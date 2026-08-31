@@ -102,6 +102,11 @@ Data is used to operate Ironbit, provide an optional recovery backup, understand
 protect data integrity, answer support requests, and fix crashes. It is shared only with the
 processors named above for those purposes.
 
+The publisher requires every processor that receives Ironbit user data—including Apple, Google,
+Supabase, Cloudflare, Firebase, and Sentry—to protect that data to the same or an equivalent standard
+as this policy and Apple's applicable privacy requirements, and to process it only for the stated
+purposes.
+
 Ironbit does not sell personal data, show ads, build advertising profiles, or combine Cloud Save
 identity with Firebase or Sentry telemetry. Ironbit does not track you across apps or websites
 owned by other companies.
@@ -129,10 +134,13 @@ both removed.
 - Cloud Save retains the current and previous successful snapshots until they are replaced or the
   cloud account is deleted.
 - Encrypted operator database backups expire after seven days.
-- Firebase Analytics and opted-in Sentry data follow the production retention settings of those
-  services.
+- Firebase Analytics user-level and event-level data is retained for no longer than 14 months.
+  Standard aggregated reports may remain available after that period without workout contents,
+  Cloud Save identity, or direct contact information.
+- Opted-in Sentry crash-event data is retained for no longer than 90 days.
 - Support messages are retained only as long as reasonably needed to answer the request, maintain
-  support history, or meet legal obligations.
+  support history, or meet legal obligations, and normally no longer than 24 months after the last
+  support contact.
 
 ## Children's privacy
 
