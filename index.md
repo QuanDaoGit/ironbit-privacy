@@ -15,8 +15,8 @@ choices available to you.
 - If you choose Cloud Save with Apple or Google, Ironbit uploads a private recovery copy of the
   account, workout, progression, program, custom-exercise, recovery, and body-metric data described
   below.
-- Google Analytics for Firebase collects pseudonymous app-usage and device information by default.
-  You can turn Usage Analytics off at any time.
+- Usage Analytics is off until you explicitly enable it in Settings. When enabled, Google
+  Analytics for Firebase receives the limited app-usage and device information described below.
 - Sentry crash reporting is off by default and starts only if you opt in. Ironbit does not enable
   Sentry performance tracing or send default personally identifying information.
 - Ironbit has no ads, does not use data for cross-app tracking, and does not sell personal data.
@@ -36,21 +36,30 @@ the device until you erase it, clear the app's data, or uninstall the app.
 
 ## Data handled when you use the app
 
-### 1. Usage analytics — on by default, with an opt-out
+### 1. Usage analytics — off until you enable it
 
 Ironbit uses Google Analytics for Firebase to understand whether features work and where the app
-needs improvement. Events can include app launches, screen views, onboarding completion, workout
-save actions, feature use, character class, and reduced-motion setting. Ironbit does not put your
-name, email, body metrics, exercise names, set values, workout contents, or Cloud Save account ID
-into Analytics.
+needs improvement, but collection begins only after you turn on **Settings → Data & Privacy → Usage
+Analytics**. Event categories can include app launches and screens; onboarding and workout-lifecycle
+actions such as starting, saving, or discarding; rest and notification interactions; feature,
+character, cosmetic, and Gem Store interactions; character class; and reduced-motion setting.
+Ironbit does not put your name, email, body metrics, exercise names, repetitions, weights, workout
+contents, purchase or receipt data, or Cloud Save account ID into Analytics.
 
-Google Analytics automatically assigns a pseudonymous app-instance identifier to an installation
-and can process app and device information, operating-system version, app version, product
-interactions, and general location derived from masked IP addresses. Ironbit does not use Analytics
-for advertising or connect it to the Cloud Save identity.
+When Usage Analytics is enabled, Google Analytics automatically assigns a pseudonymous app-instance
+identifier to an installation and can process app and device information, operating-system version,
+app version, product interactions, and general location derived from masked IP addresses. Ironbit
+does not connect this identifier to Cloud Save identity or workout contents.
 
-Turn this off at any time in **Settings → Data & Privacy → Usage Analytics**. When it is off,
-Ironbit disables Analytics collection.
+Turn the same switch off at any time to withdraw consent. Ironbit immediately closes its own event
+gate, disables future Analytics collection, denies Analytics storage consent, and asks Firebase to
+reset device-side Analytics identity and queued data. Google's `resetAnalyticsData` operation
+cannot retract data already received by Google.
+
+Ironbit does not use Google Ads linking, BigQuery export, Analytics User-ID, advertising
+personalization, Advertising ID/IDFV collection, or cross-app tracking. It does not request App
+Tracking Transparency permission because it does not link Ironbit data with data from other
+companies' apps or websites for tracking.
 
 See [Google's Privacy Policy](https://policies.google.com/privacy),
 [How Google uses data](https://policies.google.com/technologies/partner-sites), and
@@ -114,7 +123,8 @@ owned by other companies.
 ## Your choices and deletion controls
 
 - **Use guest mode:** no account is required for training.
-- **Opt out of analytics:** Settings → Data & Privacy → **Usage Analytics** (off).
+- **Control Usage Analytics:** it is off until you enable **Settings → Data & Privacy → Usage
+  Analytics**; turn the same switch off to withdraw consent.
 - **Control crash reports:** Settings → Data & Privacy → **Crash Reports**. This is off by default.
 - **Disconnect Cloud Save:** sign out and keep the local guest copy and existing cloud backup.
 - **Erase this device:** remove this phone's Ironbit player data while preserving the cloud backup.
@@ -134,9 +144,10 @@ both removed.
 - Cloud Save retains the current and previous successful snapshots until they are replaced or the
   cloud account is deleted.
 - Encrypted operator database backups expire after seven days.
-- Firebase Analytics user-level and event-level data is retained for no longer than 14 months.
-  Standard aggregated reports may remain available after that period without workout contents,
-  Cloud Save identity, or direct contact information.
+- When Usage Analytics is enabled, GA4 user-level and event-level data is configured for 14-month
+  retention. That setting does not govern standard aggregate reports, which may remain available
+  after the user/event-level retention period. Analytics never includes workout contents, Cloud
+  Save identity, or direct contact information.
 - Opted-in Sentry crash-event data is retained for no longer than 90 days.
 - Support messages are retained only as long as reasonably needed to answer the request, maintain
   support history, or meet legal obligations, and normally no longer than 24 months after the last

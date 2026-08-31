@@ -50,8 +50,10 @@ Open **Profile → Settings → Data & Privacy → Cloud Save**.
 
 ### How do I change analytics or crash-report settings?
 
-Open **Settings → Data & Privacy**. Usage Analytics can be turned off at any time. Crash Reports are
-off by default and take effect after the next launch when enabled.
+Open **Settings → Data & Privacy**. Usage Analytics is off until you turn it on and can be withdrawn
+through the same switch. Turning it off stops future collection and resets device-side Analytics
+identity/data; it cannot retract information already received by Google. Crash Reports are a
+separate choice, off by default, and take effect after the next launch when enabled.
 
 ## Privacy
 
