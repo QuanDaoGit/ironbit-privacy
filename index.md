@@ -1,6 +1,6 @@
 # Ironbit — Privacy Policy
 
-**Last updated:** 31 August 2026
+**Last updated:** 22 September 2026
 **Publisher:** Quan Dao
 **Contact:** daominhquan1106@gmail.com
 
@@ -20,7 +20,9 @@ choices available to you.
 - Sentry crash reporting is off by default and starts only if you opt in. Ironbit does not enable
   Sentry performance tracing or send default personally identifying information.
 - Ironbit has no ads, does not use data for cross-app tracking, and does not sell personal data.
-  No in-app purchases are offered in this release.
+- On iPhone, optional gem packs can be bought through Apple. Apple handles payment; Ironbit never
+  receives your card or billing details. Buying requires Cloud Save so purchased gems can be
+  recovered.
 
 ## Data that stays on your device
 
@@ -43,8 +45,9 @@ needs improvement, but collection begins only after you turn on **Settings → D
 Analytics**. Event categories can include app launches and screens; onboarding and workout-lifecycle
 actions such as starting, saving, or discarding; rest and notification interactions; feature,
 character, cosmetic, and Gem Store interactions; character class; and reduced-motion setting.
-Ironbit does not put your name, email, body metrics, exercise names, repetitions, weights, workout
-contents, purchase or receipt data, or Cloud Save account ID into Analytics.
+Gem Store events record only which pack was viewed or started, such as "800 gems". Ironbit does not
+put your name, email, body metrics, exercise names, repetitions, weights, workout contents, prices,
+transaction IDs, receipts, purchase outcomes, or Cloud Save account ID into Analytics.
 
 When Usage Analytics is enabled, Google Analytics automatically assigns a pseudonymous app-instance
 identifier to an installation and can process app and device information, operating-system version,
@@ -84,7 +87,8 @@ Cloud Save is optional. If you choose it, Apple or Google authenticates you and 
 - The account identifier, email, and any display name supplied by the provider. Apple may provide
   a private-relay address instead of your personal email.
 - Workouts, exercises, sets, training history, programs and schedules, custom exercises, recovery
-  state, character and progression data, body-metric entries, and earned-item and reward ledgers.
+  state, character and progression data, body-metric entries, earned-item and reward ledgers, and
+  the gem ledger, including gems bought through Apple.
 - Backup-integrity data such as snapshot hashes, record counts, device-writer identifiers,
   generation ancestry, and successful-backup timestamps.
 
@@ -99,7 +103,23 @@ days. See [Apple's Privacy Policy](https://www.apple.com/legal/privacy/),
 [Supabase's Privacy Policy](https://supabase.com/privacy), and
 [Cloudflare's Privacy Policy](https://www.cloudflare.com/privacypolicy/).
 
-### 4. Support messages
+### 4. Gem purchases (iPhone)
+
+Gem packs are optional consumable in-app purchases sold through Apple on iPhone. Gems buy cosmetic
+avatar frames only. Apple processes the payment under its own terms and privacy policy; Ironbit
+never receives your card number, billing address, or Apple ID password.
+
+Buying gems requires Cloud Save, so purchased gems can be recovered. When you buy a pack, the app
+sends Apple's signed transaction record to Ironbit's verification service on Supabase. The service
+checks Apple's signature and stores a purchase receipt with your Cloud Save account: the Apple
+transaction ID, which pack was bought, the gem amount, the purchase time, and whether it was a test
+(Sandbox) or real purchase. The receipt exists so each purchase is credited exactly once. The gems
+are then added to your gem ledger, which is part of your Cloud Save backup.
+
+Apple manages refunds and your purchase history. See
+[Apple's Privacy Policy](https://www.apple.com/legal/privacy/).
+
+### 5. Support messages
 
 If you email support, the publisher receives your email address and the information you choose to
 include. Support messages are used only to answer the request, investigate the issue, and keep
@@ -131,10 +151,11 @@ owned by other companies.
 - **Delete cloud account:** after fresh Apple or Google verification, delete the Supabase
   authentication account and cloud backup while keeping this phone as an offline guest.
 - **Erase everything:** delete the cloud account, then erase this phone's player data.
+- **Purchases and refunds:** managed through your Apple account; Ironbit cannot issue refunds.
 - **Ask a question or make a privacy request:** email daominhquan1106@gmail.com.
 
-Deleting a Cloud Save account removes the account and player backup from the live service. Encrypted
-operator backups age out under the seven-day retention policy. Deleting the app alone removes local
+Deleting a Cloud Save account removes the account, player backup, and purchase receipts from the
+live service. Encrypted operator backups age out under the seven-day retention policy. Deleting the app alone removes local
 data but does not delete an optional cloud account; use **Delete Cloud Account** first if you want
 both removed.
 
@@ -144,6 +165,8 @@ both removed.
 - Cloud Save retains the current and previous successful snapshots until they are replaced or the
   cloud account is deleted.
 - Encrypted operator database backups expire after seven days.
+- Gem purchase receipts are kept with the Cloud Save account and deleted with it. Apple keeps its
+  own purchase records under Apple's policy.
 - When Usage Analytics is enabled, GA4 user-level and event-level data is configured for 14-month
   retention. That setting does not govern standard aggregate reports, which may remain available
   after the user/event-level retention period. Analytics never includes workout contents, Cloud
